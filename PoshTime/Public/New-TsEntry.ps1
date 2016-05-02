@@ -14,7 +14,7 @@
     
     if ($Response -eq '' -or $Response -eq $null)
     {
-        $Response = 'No Response - AFK?'
+        $Response = '** Canceled **'
     }
 
     $Record = [pscustomobject] @{
@@ -22,7 +22,6 @@
         User = $env:USERNAME
 		Activity = $Response
 	}
-    
 
     $Record | Export-Csv -Path "$Path\$($env:USERNAME).csv" -Append -NoTypeInformation -Force
 }
