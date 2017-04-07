@@ -1,4 +1,4 @@
 {
     "Timeout":            600,
-    "TimesheetDirectory": "\\\\filestore\\it$\\Timesheets\\"
+    "TimesheetDirectory": "\\\\server\\share$\\Timesheets\\"
 }
