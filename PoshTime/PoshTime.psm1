@@ -13,4 +13,6 @@ Foreach($Import in @($Public + $Private))
     }
 }
 
+$Script:Config = Get-Content -Path $PSScriptRoot\config.json -ErrorAction SilentlyContinue | ConvertFrom-Json
+
 Export-ModuleMember -Function $Public.Basename

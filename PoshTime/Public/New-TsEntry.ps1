@@ -1,23 +1,19 @@
-﻿function New-TsEntry
-{
-    param
-    (
-        [string] $Path = '\\redacted\share$\timesheets\'
+﻿function New-TsEntry {
+    param (
+        [string] $Path = $Script:Config.TimesheetDirectory
     )
 
-    if (!(Test-Path -Path $Path))
-    {
+    if (!(Test-Path -Path $Path)) {
         $null = New-Item -Path $Path -ItemType Directory
     }
 
     $Response = New-TsInputForm
-    
-    if ($Response -eq '' -or $Response -eq $null)
-    {
+
+    if ($Response -eq '' -or $Response -eq $null) {
         $Response = '** Canceled **'
     }
 
-    $Record = [pscustomobject] @{
+    $Record = [PSCustomObject] @{
 		Time = Get-Date
         User = $env:USERNAME
 		Activity = $Response
